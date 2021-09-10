@@ -20,11 +20,19 @@ module.exports = {
         },
       },
       {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        loader: "file-loader",
+        options: {
+          name: "static/media/[name].[hash].[ext]",
+        },
+      },
+      {
         test: /\.(scss)$/,
         use: [
           MiniCssExtractPlugin.loader, // style tag in our dist/index.html
           "css-loader", //allow css
           "sass-loader", // convert sass to css
+          "postcss-loader",
         ],
       },
     ],
