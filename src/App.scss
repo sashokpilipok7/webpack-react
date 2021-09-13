@@ -5,6 +5,10 @@ body {
   display: flex;
 }
 
+#app {
+  width: 100%;
+}
+
 ::placeholder {
   color: gray;
 }
