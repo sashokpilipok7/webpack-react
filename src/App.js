@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Tooltip } from "@material-ui/core";
+import { Button, Tooltip, List, ListItem } from "@material-ui/core";
 
 import Logo from "./assets/images/Logo.svg";
 import MainImage from "./assets/images/Main Image.jpg";
@@ -11,15 +11,15 @@ data.add({ name: "Sasha", surname: "Pilipenko2" });
 data.add({ name: "Sasha", surname: "Pilipenko3" });
 data.add({ name: "Sasha", surname: "Pilipenko2" });
 
-function List() {
+function UserList() {
   return (
-    <div className="flex flex-col">
+    <List>
       {Array.from(data).map(({ name, surname }) => (
-        <div className="w-1\3 border">
+        <ListItem className="w-1\3 border">
           {name} / {surname}
-        </div>
+        </ListItem>
       ))}
-    </div>
+    </List>
   );
 }
 
@@ -45,7 +45,7 @@ export function App() {
         <Button
           variant="contained"
           color="secondary"
-          onClick={setVisible.bind(null, true)}
+          onClick={setVisible.bind(null, !visible)}
         >
           Hello World
         </Button>
@@ -54,6 +54,7 @@ export function App() {
             <div>Ha ha i'm tooltip!</div>
           </Tooltip>
         )}
+        <UserList />
       </div>
     </div>
   );
